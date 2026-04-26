@@ -1,0 +1,15 @@
+<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+  <h2>Intereses</h2>
+  <div *ngIf="interests$ | async as interests">
+    <div *ngIf="interests.length > 0; else noData">
+      <ul>
+        <li *ngFor="let interest of interests" style="margin-bottom: 8px;">
+          {{interest.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No hay intereses disponibles.</p>
+  </ng-template>
+</div>

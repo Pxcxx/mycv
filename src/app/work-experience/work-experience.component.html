@@ -1,0 +1,17 @@
+<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+  <h2>Experiencia Laboral</h2>
+  <div *ngIf="workExperiences$ | async as workExperiences">
+    <div *ngIf="workExperiences.length > 0; else noData">
+      <div *ngFor="let exp of workExperiences" style="margin-bottom: 15px;">
+        <h3>{{exp.position}} - {{exp.company}}</h3>
+        <p *ngIf="exp.startDate || exp.endDate"><strong>Período:</strong> {{exp.startDate}} – {{exp.endDate}}</p>
+        <ul *ngIf="exp.responsibilities && exp.responsibilities.length > 0">
+          <li *ngFor="let resp of exp.responsibilities">{{resp}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No hay experiencia laboral disponible.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,17 @@
+<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+  <h2>Habilidades</h2>
+  <div *ngIf="skills$ | async as skills">
+    <div *ngIf="skills.length > 0; else noData">
+      <div *ngFor="let skill of skills" style="margin-bottom: 12px;">
+        <p *ngIf="skill.name"><strong>{{skill.name}}</strong></p>
+        <div style="width: 100%; background-color: #e0e0e0; border-radius: 5px; height: 20px; overflow: hidden;">
+          <div *ngIf="skill.percentage" style="width: {{skill.percentage}}%; background-color: #4CAF50; height: 100%; display: flex; align-items: center; color: white; font-size: 12px; padding-left: 5px;">{{skill.percentage}}%</div>
+          <div *ngIf="!skill.percentage" style="width: 0%; background-color: #4CAF50; height: 100%;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No hay habilidades disponibles.</p>
+  </ng-template>
+</div>

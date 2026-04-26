@@ -1,0 +1,11 @@
+<div *ngIf="headerData$ | async as headerData" style="text-align: center; padding: 20px; background-color: #f0f0f0; border-radius: 8px;">
+  <img *ngIf="headerData.photoUrl" 
+       [src]="headerData.photoUrl" 
+       alt="{{headerData.name}} photo"
+       style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid #2c3e50;">
+  <h1>{{headerData.name}}</h1>
+  <h3>{{headerData.career}}</h3>
+  <p *ngIf="headerData.location"><strong>Ubicación:</strong> {{headerData.location}}</p>
+  <p *ngIf="headerData.email"><strong>Email:</strong> <a href="mailto:{{headerData.email}}">{{headerData.email}}</a></p>
+  <p *ngIf="headerData.github"><strong>GitHub:</strong> <a href="{{headerData.github}}" target="_blank">{{headerData.github}}</a></p>
+</div>

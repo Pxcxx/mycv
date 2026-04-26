@@ -1,0 +1,15 @@
+<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+  <h2>Certificados</h2>
+  <div *ngIf="certificates$ | async as certificates">
+    <div *ngIf="certificates.length > 0; else noData">
+      <ul>
+        <li *ngFor="let cert of certificates" style="margin-bottom: 8px;">
+          <strong *ngIf="cert.issuer">{{cert.issuer}}:</strong> {{cert.title}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No hay certificados disponibles.</p>
+  </ng-template>
+</div>

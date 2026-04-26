@@ -1,0 +1,15 @@
+<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+  <h2>Educación</h2>
+  <div *ngIf="educations$ | async as educations">
+    <div *ngIf="educations.length > 0; else noData">
+      <div *ngFor="let edu of educations" style="margin-bottom: 10px;">
+        <h3>{{edu.degree}}</h3>
+        <p *ngIf="edu.institution"><strong>Institución:</strong> {{edu.institution}}</p>
+        <p *ngIf="edu.startYear || edu.endYear"><strong>Período:</strong> {{edu.startYear}} - {{edu.endYear}}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No hay educación disponible.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,15 @@
+<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+  <h2>Idiomas</h2>
+  <div *ngIf="languages$ | async as languages">
+    <div *ngIf="languages.length > 0; else noData">
+      <ul>
+        <li *ngFor="let lang of languages" style="margin-bottom: 8px;">
+          <strong *ngIf="lang.name">{{lang.name}}:</strong> {{lang.level}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ng-template #noData>
+    <p>No hay idiomas disponibles.</p>
+  </ng-template>
+</div>
